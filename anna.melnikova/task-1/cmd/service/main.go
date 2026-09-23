@@ -27,15 +27,15 @@ func main() {
 	if c == "-" {
 		fmt.Println(a - b)
 		return
-	} else if c == "*" {
+	}
+	if c == "*" {
 		fmt.Println(a * b)
 		return
-	} else if c == "/" {
+	}
+	if c == "/" {
 		fmt.Println(a / b)
 		return
-	} else {
-		fmt.Println(a + b)
-		return
 	}
-
+	fmt.Println(a + b)
+	return
 }
