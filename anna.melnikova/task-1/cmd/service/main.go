@@ -37,5 +37,4 @@ func main() {
 		return
 	}
 	fmt.Println(a + b)
-	return
 }
