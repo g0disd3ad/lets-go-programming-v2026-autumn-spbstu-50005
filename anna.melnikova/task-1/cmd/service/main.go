@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	var a, b int
-	var c string
+	var operation string
 	_, err := fmt.Scan(&a)
 	if err != nil {
 		fmt.Println("Invalid first operand")
@@ -15,26 +15,25 @@ func main() {
 		fmt.Println("Invalid second operand")
 		return
 	}
-	_, err = fmt.Scan(&c)
-	if err != nil || (c != "+" && c != "-" && c != "*" && c != "/") {
+	_, err = fmt.Scan(&operation)
+	if err != nil {
 		fmt.Println("Invalid operation")
 		return
 	}
-	if c == "/" && b == 0 {
-		fmt.Println("Division by zero")
-		return
-	}
-	if c == "-" {
+	switch operation {
+	case "+":
+		fmt.Println(a + b)
+	case "-":
 		fmt.Println(a - b)
-		return
-	}
-	if c == "*" {
+	case "*":
 		fmt.Println(a * b)
-		return
+	case "/":
+		if b == 0 {
+			fmt.Println("Division by zero")
+		} else {
+			fmt.Println(a / b)
+		}
+	default:
+		fmt.Println("Invalid operation")
 	}
-	if c == "/" {
-		fmt.Println(a / b)
-		return
-	}
-	fmt.Println(a + b)
 }
